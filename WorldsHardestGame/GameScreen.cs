@@ -12,6 +12,8 @@ namespace WorldsHardestGame
 {
     public partial class GameScreen : UserControl
     {
+        Random randGen = new Random(); 
+
         SolidBrush redBrush = new SolidBrush(Color.Red);
         SolidBrush blueBrush = new SolidBrush(Color.Blue);
         bool leftArrowDown, rightArrowDown, upArrowDown, downArrowDown;
@@ -31,6 +33,10 @@ namespace WorldsHardestGame
             width = this.Width;
             height = this.Height;
             hero = new Player(100, 100);
+            for (int i = 0; i < 3; i++)
+            {
+                CreateBall();
+            }
 
         }
 
@@ -58,6 +64,11 @@ namespace WorldsHardestGame
             }
             Refresh();
 
+            //move all the enemy balls
+            foreach (Ball enemy in enemies)
+            {
+                enemy.Move();
+            }
         }
 
         private void GameScreen_Paint(object sender, PaintEventArgs e)
@@ -110,6 +121,17 @@ namespace WorldsHardestGame
                     downArrowDown = false;
                     break;
             }
+        }
+
+        private void CreateBall()
+        {
+            int x = randGen.Next(10, width - 20);
+            int y = randGen.Next(10, height - 20);
+            int xSpeed = randGen.Next(5, 10);
+            int ySpeed = randGen.Next(5, 10);
+
+            Ball newBall = new Ball(x, y, xSpeed, ySpeed);
+            enemies.Add(newBall);
         }
     }
 }

@@ -80,6 +80,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.playButton);
+            this.DoubleBuffered = true;
             this.Name = "MenuScreen";
             this.Size = new System.Drawing.Size(600, 400);
             this.Load += new System.EventHandler(this.MenuScreen_Load);

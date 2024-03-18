@@ -11,7 +11,7 @@ namespace WorldsHardestGame
         public int x, y;
         public int width = 20;
         public int height = 20;
-        public int speed = 6;
+        public int speed = 3;
 
         public Player(int x, int y)
         {

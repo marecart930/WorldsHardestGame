@@ -35,7 +35,7 @@
             // gameTimer
             // 
             this.gameTimer.Enabled = true;
-            this.gameTimer.Interval = 20;
+            this.gameTimer.Interval = 10;
             this.gameTimer.Tick += new System.EventHandler(this.gameTimer_Tick);
             // 
             // GameScreen
@@ -43,6 +43,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.DoubleBuffered = true;
             this.Name = "GameScreen";
             this.Size = new System.Drawing.Size(600, 400);
             this.Load += new System.EventHandler(this.GameScreen_Load);

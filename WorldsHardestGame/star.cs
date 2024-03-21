@@ -3,28 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Media;
 using System.Drawing;
 
 namespace WorldsHardestGame
 {
-    internal class Ball
+    internal class star
     {
-        int spriteNumber = 0;
-        public Image currentSprite = Properties.Resources.Fire1;
+        public int spriteNumber = 0;
+        public Image currentSprite = Properties.Resources.star1;
+        public Image currentBoomSprite = Properties.Resources.boom1;
+
         //angle variable
         public int size, x, y, xSpeed, ySpeed;
 
-        public Ball(int x, int y, int xSpeed, int ySpeed)
+        public star(int x, int y, int xSpeed, int ySpeed)
         {
             this.x = x;
             this.y = y;
             //this.xSpeed = xSpeed;
             this.ySpeed = ySpeed;
+            this.xSpeed = xSpeed;
 
             size = 20;
         }
 
-        public void Move()
+        public void MoveStar()
         {
             x += xSpeed;
             y += ySpeed;
@@ -38,10 +42,19 @@ namespace WorldsHardestGame
             {
                 ySpeed *= -1;
             }
-            currentSprite = Form1.fireBall[spriteNumber];
+            currentSprite = Form1.star[spriteNumber];
+            spriteNumber++;
+            if (spriteNumber > 15)
+            {
+                spriteNumber = 0;
+            }
+        }
+        public void BoomBoom()
+        {
+            currentSprite = Form1.boom[spriteNumber];
             spriteNumber++;
 
-            if (spriteNumber > 19)
+            if (spriteNumber > 13)
             {
                 spriteNumber = 0;
             }
